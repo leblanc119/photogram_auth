@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>
+    My Likes
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Photo</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @likes.each do |like| %>
+      <td><% if like.user_id == current_user.id %></td>
+      <tr>
+        <td><%= Photo.find(like.photo_id).image %></td>
+        <td>
+          <a href="/likes/<%= like.id %>" class="btn btn-primary">Show</a>
+          <a href="/likes/<%= like.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_like/<%= like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
