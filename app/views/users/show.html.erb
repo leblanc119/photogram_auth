@@ -2,16 +2,15 @@
   <h3>User #<%= @user.id %></h3>
 </div>
 
-<% @photos = Photo.all  %>
-<% @photos.each do |photo| %>
+
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <% @user.photos.each do |photo| %>
       <dt>Image</dt>
-      <dd><%= @user.photos %></dd>
+      <dd><%= photo.image %></dd>
       <dt>Caption</dt>
       <dd><%= photo.caption %></dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -25,6 +24,6 @@
         Delete
       </a>
     </div>
+<% end %>
   </div>
 </div>
-<% end %>
