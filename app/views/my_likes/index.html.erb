@@ -12,17 +12,19 @@
         <th>Actions</th>
       </tr>
 
-      <% @likes.each do |like| %>
-      <td><% if like.user_id == current_user.id %></td>
+      <% current_user.liked_photos.each do |photo| %>
+      <td></td>
       <tr>
-        <td><%= Photo.find(like.photo_id).image %></td>
         <td>
-          <a href="/likes/<%= like.id %>" class="btn btn-primary">Show</a>
-          <a href="/likes/<%= like.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_like/<%= like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <%= photo.image %>
+          <p><%= photo.caption %></p>
+        </td>
+        <td>
+          <a href="/likes/<%= photo.id %>" class="btn btn-primary">Show</a>
+          <a href="/likes/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_like/<%= photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
-      <% end %>
       <% end %>
     </table>
   </div>
