@@ -7,9 +7,8 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <% if photo.user_id == @user.id %>
       <dt>Image</dt>
-      <dd><%= photo.image %></dd>
+      <dd><%= @user.photos %></dd>
       <dt>Caption</dt>
       <dd><%= photo.caption %></dd>
 
@@ -28,5 +27,4 @@
     </div>
   </div>
 </div>
-<% end %>
 <% end %>
