@@ -15,15 +15,30 @@
   <div class="panel-body">
     <div><%= photo.image %></div>
     <div><%= photo.caption %></div>
-    <i class="fa fa-heart" aria-hidden="true"></i>
-    <% photo.likes.each do |like| %>
-    <%= like.user.username %>
-    <% end %>
-    <% if photo.likes.count == 1 %>
-    likes this
-    <% elsif photo.likes.count > 1 %>
-    like this
-    <% end %>
+
+    <!-- Likes -->
+    <p>
+      <i class="fa fa-heart" aria-hidden="true"></i>
+      <% photo.likes.each do |like| %>
+      <%= like.user.username %>
+      <% end %>
+      <% if photo.likes.count == 1 %>
+      likes this
+      <% elsif photo.likes.count > 1 %>
+      like this
+      <% end %>
+    </p>
+
+    <!-- Comments -->
+    <div>
+      <% photo.comments.each do |comment| %>
+      <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
+      <div>
+        <%= comment.body %>
+      </div>
+      <% end %>
+    </div>
+
 
     <div>
       <% if photo.user_id == current_user.id %>
