@@ -7,9 +7,7 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <% @user.photos.each do |photo| %>
-      <dt>Image</dt>
-      <dd><%= photo.image %></dd>
-      <dt>Caption</dt>
+      <dd><img src="<%= photo.image %>"></dd>
       <dd><%= photo.caption %></dd>
     </dl>
 
